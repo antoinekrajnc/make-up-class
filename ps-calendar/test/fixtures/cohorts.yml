@@ -1,0 +1,43 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  batch_number: 1
+  instructor: MyString
+  day_1: 2017-03-09
+  day_2: 2017-03-09
+  day_3: 2017-03-09
+  day_4: 2017-03-09
+  day_5: 2017-03-09
+  day_6: 2017-03-09
+  day_7: 2017-03-09
+  day_8: 2017-03-09
+  day_9: 2017-03-09
+  day_10: 2017-03-09
+  day_11: 2017-03-09
+  day_12: 2017-03-09
+  day_13: 2017-03-09
+  day_14: 2017-03-09
+  day_15: 2017-03-09
+  day_16: 2017-03-09
+
+two:
+  title: MyString
+  batch_number: 1
+  instructor: MyString
+  day_1: 2017-03-09
+  day_2: 2017-03-09
+  day_3: 2017-03-09
+  day_4: 2017-03-09
+  day_5: 2017-03-09
+  day_6: 2017-03-09
+  day_7: 2017-03-09
+  day_8: 2017-03-09
+  day_9: 2017-03-09
+  day_10: 2017-03-09
+  day_11: 2017-03-09
+  day_12: 2017-03-09
+  day_13: 2017-03-09
+  day_14: 2017-03-09
+  day_15: 2017-03-09
+  day_16: 2017-03-09
