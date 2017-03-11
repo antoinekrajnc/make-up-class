@@ -10,7 +10,7 @@ require 'csv'
 csv_text = File.read(Rails.root.join('lib', 'seeds', 'cohort_list.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 
-i = 93
+i = 1
       csv.each do |row|
        c = Cohort.find(i)
        c.title = row['Cohort_Name']

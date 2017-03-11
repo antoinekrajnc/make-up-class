@@ -1,0 +1,50 @@
+<h1>Make-ups</h1>
+
+<div class="dropdown d-flex center">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Location
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="#">San Francisco</a>
+    <a class="dropdown-item" href="#">Santa Clara</a>
+    <a class="dropdown-item" href="#">New York</a>
+    <a class="dropdown-item" href="#">Los Angeles</a>
+  </div>
+</div>
+<div class="d-flex flex-row center justify-content-around">
+  <% for i in 0..6 do %>
+  <% date = Date.today + i %>
+   <div class = "flex-column bg-danger text-white rounded col-1">
+      <h6><%= "#{date.month} /#{date.day}"%></h6>
+      <% for j in 1..Cohort.all.size do %>
+        <% cohort = Cohort.find(j) %>
+          <% cohort.attributes.each_pair do |name, value| %>
+            <% if date == value %>
+            <div = "d-flex flex-start">
+              <p class="row-1 m-0"><%=link_to "#{cohort.title} #{name}", makeup_path("#{cohort.id}#{name}")%><p>
+            </div>
+            <% end %>
+          <% end %>
+        <%end%>
+  </div>
+  <% end %>
+</div>
+<!--<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @makeups.each do |makeup| %>
+      <tr>
+        <td><%= link_to 'Show', makeup %></td>
+        <td><%= link_to 'Edit', edit_makeup_path(makeup) %></td>
+        <td><%= link_to 'Destroy', makeup, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>-->

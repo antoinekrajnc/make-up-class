@@ -1,13 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PsCalendar</title>
+    <title>Make-up Classes</title>
     <%= csrf_meta_tags %>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  <!--NAV BAR -->
 
+       <nav class="navbar navbar-inverse bg-inverse navbar-fixed-top ">
+         <div class="container d-flex justify-content-between">
+            <a class="navbar-brand" href="#">Product School</a>
+            <a class="navbar-brand" href="form.html">Find a Spot</a>
+          </div>
+        </nav>
+  <!-- /NAV BAR-->
+  
   <body>
     <%= yield %>
   </body>
