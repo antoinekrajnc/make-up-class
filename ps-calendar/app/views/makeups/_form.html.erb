@@ -7,12 +7,34 @@
       <% makeup.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
-      </ul>
-    </div>
+
   <% end %>
 
   <div class="actions">
-    
+
+    <div class="">
+      <%= f.label :Name%>
+      <%= f.text_field :user_name, :required => true %>
+    </div>
+    <div class="">
+      <%= f.label :Email%>
+      <%= f.email_field :user_email, :required => true %>
+    </div>
+    <div class="">
+      <%= f.label :Your_cohort%>
+      <%= f.text_field :user_cohort, :required => true %>
+    </div>
+    <div class="">
+      <%= f.label :clicked_cohort%>
+      <%= f.text_field :clicked_cohort, :required => true, :value => params[:clicked_cohort] %>
+    </div>
+    <div class="">
+      <%= f.label :clicked_day%>
+      <%= f.text_field :clicked_day, :required => true, :value => params[:clicked_day] %>
+    </div>
+    </ul>
+  </div>
+
     <%= f.submit %>
   </div>
 <% end %>

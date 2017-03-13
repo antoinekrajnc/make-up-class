@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170310223517) do
+ActiveRecord::Schema.define(version: 20170313174849) do
 
   create_table "cohorts", force: :cascade do |t|
     t.string   "title"
@@ -37,8 +37,13 @@ ActiveRecord::Schema.define(version: 20170310223517) do
   end
 
   create_table "makeups", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.string   "user_name"
+    t.string   "user_email"
+    t.string   "user_cohort"
+    t.string   "clicked_cohort"
+    t.string   "clicked_day"
   end
 
 end

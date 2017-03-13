@@ -1,5 +1,6 @@
 class MakeupsController < ApplicationController
   before_action :set_makeup, only: [:show, :edit, :update, :destroy]
+  before_filter :check_if_available_spots, only: [:show, :new, :create]
 
   # GET /makeups
   # GET /makeups.json
@@ -14,7 +15,7 @@ class MakeupsController < ApplicationController
 
   # GET /makeups/new
   def new
-    @makeup = Makeup.new
+      @makeup = Makeup.new
   end
 
   # GET /makeups/1/edit
@@ -69,6 +70,32 @@ class MakeupsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def makeup_params
-      params.fetch(:makeup, {})
+      params.require(:makeup).permit(:user_name, :user_email, :user_cohort, :clicked_day, :clicked_cohort)
     end
+
+    def check_if_available_spots
+      for i in Makeup.first.id..Makeup.all.size do
+        first_day_available = Makeup.find(i).clicked_day
+        first_cohort_available = Makeup.find(i).clicked_cohort
+        for j in Makeup.first.id..Makeup.all.size do
+          second_day_available = Makeup.find(j).clicked_day
+          second_cohort_available = Makeup.find(j).clicked_cohort
+          for k in Makeup.first.id..Makeup.all.size do
+            third_day_available = Makeup.find(k).clicked_day
+            third_cohort_available = Makeup.find(k).clicked_cohort
+
+              if first_day_available = second_day_available && first_cohort_available == second_cohort_available
+                puts "1 spot available"
+
+              elsif first_day_available == second_day_available && first_day_available == third_day_available && first_cohort_available == second_cohort_available && first_cohort_available == third_cohort_available
+                format.html {redirect_to @makeup, notice:"sorry no spots available"}
+
+              else
+                puts"2 spots available"
+
+                end
+              end
+          end
+        end
+      end
 end

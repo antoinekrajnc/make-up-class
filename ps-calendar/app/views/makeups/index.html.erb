@@ -21,7 +21,7 @@
           <% cohort.attributes.each_pair do |name, value| %>
             <% if date == value %>
             <div = "d-flex flex-start">
-              <p class="row-1 m-0"><%=link_to "#{cohort.title} #{name}", makeup_path("#{cohort.id}#{name}")%><p>
+              <p class="row-1 m-0"><%=link_to "#{cohort.title} #{name}", new_makeup_path(@makeup, clicked_cohort:"#{cohort.title}", clicked_day: "#{name}")%><p>
             </div>
             <% end %>
           <% end %>
