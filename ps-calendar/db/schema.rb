@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170313174849) do
+ActiveRecord::Schema.define(version: 20170314011010) do
 
   create_table "cohorts", force: :cascade do |t|
     t.string   "title"
@@ -32,8 +32,24 @@ ActiveRecord::Schema.define(version: 20170313174849) do
     t.date     "day_14"
     t.date     "day_15"
     t.date     "day_16"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "makeups_day_1"
+    t.integer  "makeups_day_2"
+    t.integer  "makeups_day_3"
+    t.integer  "makeups_day_4"
+    t.integer  "makeups_day_5"
+    t.integer  "makeups_day_6"
+    t.integer  "makeups_day_7"
+    t.integer  "makeups_day_8"
+    t.integer  "makeups_day_9"
+    t.integer  "makeups_day_10"
+    t.integer  "makeups_day_11"
+    t.integer  "makeups_day_12"
+    t.integer  "makeups_day_13"
+    t.integer  "makeups_day_14"
+    t.integer  "makeups_day_15"
+    t.integer  "makeups_day_16"
   end
 
   create_table "makeups", force: :cascade do |t|
