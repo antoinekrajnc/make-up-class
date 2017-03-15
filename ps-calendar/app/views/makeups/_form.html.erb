@@ -1,4 +1,4 @@
-<%= form_for(makeup) do |f| %>
+<%= form_for (makeup) do |f| %>
   <% if makeup.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(makeup.errors.count, "error") %> prohibited this makeup from being saved:</h2>
@@ -11,30 +11,33 @@
   <% end %>
 
   <div class="actions">
+    <%= @spot_available %>
 
-    <div class="">
-      <%= f.label :Name%>
-      <%= f.text_field :user_name, :required => true %>
+    <% if @spot_available != "Sorry no spots available" %>
+      <div class="">
+        <%= f.label :Name%>
+        <%= f.text_field :user_name, :required => true %>
+      </div>
+      <div class="">
+        <%= f.label :Email%>
+        <%= f.email_field :user_email, :required => true %>
+      </div>
+      <div class="">
+        <%= f.label :Your_cohort%>
+        <%= f.text_field :user_cohort, :required => true, :value => params[:user_cohort] %>
+      </div>
+      <div class="">
+        <%= f.label :clicked_cohort%>
+        <%= f.text_field :clicked_cohort, :required => true, :value => params[:clicked_cohort] %>
+      </div>
+      <div class="">
+        <%= f.label :clicked_day%>
+        <%= f.text_field :clicked_day, :required => true, :value => params[:clicked_day] %>
+      </div>
+      </ul>
     </div>
-    <div class="">
-      <%= f.label :Email%>
-      <%= f.email_field :user_email, :required => true %>
-    </div>
-    <div class="">
-      <%= f.label :Your_cohort%>
-      <%= f.text_field :user_cohort, :required => true %>
-    </div>
-    <div class="">
-      <%= f.label :clicked_cohort%>
-      <%= f.text_field :clicked_cohort, :required => true, :value => params[:clicked_cohort] %>
-    </div>
-    <div class="">
-      <%= f.label :clicked_day%>
-      <%= f.text_field :clicked_day, :required => true, :value => params[:clicked_day] %>
-    </div>
-    </ul>
-  </div>
 
-    <%= f.submit %>
+      <%= f.submit %>
+    <% end %>
   </div>
 <% end %>

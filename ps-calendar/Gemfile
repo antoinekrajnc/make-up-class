@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
 
-
+# Gem to authorize users
+gem "cancancan"
+# Gem to authenticate users
+gem "devise"
 #ActiveRecord-import
 gem "activerecord-import", ">= 0.2.0"
 

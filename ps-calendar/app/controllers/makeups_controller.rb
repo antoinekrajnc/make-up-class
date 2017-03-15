@@ -1,6 +1,8 @@
 class MakeupsController < ApplicationController
   before_action :set_makeup, only: [:show, :edit, :update, :destroy]
-  before_filter :check_if_available, only: [:show, :new, :create]
+  before_action :check_if_available, only: [:show, :new]
+  after_action :free_a_spot, only: [:create]
+  load_and_authorize_resource  only: [:edit, :update, :destroy]
 
   # GET /makeups
   # GET /makeups.json
@@ -11,11 +13,13 @@ class MakeupsController < ApplicationController
   # GET /makeups/1
   # GET /makeups/1.json
   def show
+    @user = current_user
   end
 
   # GET /makeups/new
   def new
-      @makeup = Makeup.new
+      @user = current_user
+      @makeup = Makeup.new(user_id: current_user.id)
   end
 
   # GET /makeups/1/edit
@@ -25,14 +29,13 @@ class MakeupsController < ApplicationController
   # POST /makeups
   # POST /makeups.json
   def create
-    @makeup = Makeup.new(makeup_params)
+    @user = current_user
+    @makeup = @user.makeups.new(makeup_params)
 
     respond_to do |format|
       if @makeup.save
-        format.html { redirect_to @makeup, notice: 'Makeup was successfully created.' }
+        format.html { redirect_to @makeup, notice: "Makeup was sucessfully created" }
         format.json { render :show, status: :created, location: @makeup }
-
-
       else
         format.html { render :new }
         format.json { render json: @makeup.errors, status: :unprocessable_entity }
@@ -78,13 +81,20 @@ class MakeupsController < ApplicationController
     def check_if_available
       spot_available = Makeup.where(clicked_day: "#{params[:clicked_day]}", clicked_cohort: "#{params[:clicked_cohort]}").count
 
-      if spot_available == 0
-        puts "2 spots available"
+        if spot_available == 0
+          @spot_available = "2 spots available"
         elsif spot_available == 1
-        puts "1 spot available"
+          @spot_available = "1 spots available"
         else
-        puts "sorry no spots available"
-      end
+          @spot_available = "Sorry no spots available"
+        end
+    end
 
+    def free_a_spot
+      @user = current_user
+      @makeup = Makeup.where(clicked_cohort: "#{@user.user_cohort}", clicked_day: "#{params[:clicked_day]}").count
+        if @makeup > 0
+          Makeup.where(clicked_cohort: "#{@user.user_cohort}", clicked_day: "#{params[:clicked_day]}").first.delete
+        end
     end
 end
