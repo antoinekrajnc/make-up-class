@@ -1,7 +1,7 @@
 class MakeupsController < ApplicationController
-  before_action :set_makeup, only: [:show, :edit, :update, :destroy]
-  before_action :check_if_available, only: [:show, :new]
-  after_action :free_a_spot, only: [:create]
+  before_action :set_makeup, only: [:edit, :update, :destroy]
+  before_action :check_if_available, only: [:new]
+  after_action :free_a_spot, only: [:new]
   load_and_authorize_resource  only: [:edit, :update, :destroy]
 
   # GET /makeups
@@ -14,6 +14,7 @@ class MakeupsController < ApplicationController
   # GET /makeups/1.json
   def show
     @user = current_user
+    @makeup = Makeup.new(user_id: current_user.id)
   end
 
   # GET /makeups/new
@@ -67,6 +68,7 @@ class MakeupsController < ApplicationController
     end
   end
 
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_makeup
@@ -90,10 +92,11 @@ class MakeupsController < ApplicationController
         end
     end
 
+
     def free_a_spot
       @user = current_user
       @makeup = Makeup.where(clicked_cohort: "#{@user.user_cohort}", clicked_day: "#{params[:clicked_day]}").count
-        if @makeup > 0
+        if @makeup > 1
           Makeup.where(clicked_cohort: "#{@user.user_cohort}", clicked_day: "#{params[:clicked_day]}").first.delete
         end
     end
