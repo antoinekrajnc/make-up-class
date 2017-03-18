@@ -10,28 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170314214023) do
+ActiveRecord::Schema.define(version: 20170316222521) do
 
   create_table "cohorts", force: :cascade do |t|
     t.string   "title"
     t.integer  "batch_number"
     t.string   "instructor"
-    t.date     "day_1"
-    t.date     "day_2"
-    t.date     "day_3"
-    t.date     "day_4"
-    t.date     "day_5"
-    t.date     "day_6"
-    t.date     "day_7"
-    t.date     "day_8"
-    t.date     "day_9"
-    t.date     "day_10"
-    t.date     "day_11"
-    t.date     "day_12"
-    t.date     "day_13"
-    t.date     "day_14"
-    t.date     "day_15"
-    t.date     "day_16"
+    t.date     "week_1A"
+    t.date     "week_1B"
+    t.date     "week_2A"
+    t.date     "week_2B"
+    t.date     "week_3A"
+    t.date     "week_3B"
+    t.date     "week_4A"
+    t.date     "week_4B"
+    t.date     "week_5A"
+    t.date     "week_5B"
+    t.date     "week_6A"
+    t.date     "week_6B"
+    t.date     "week_7A"
+    t.date     "week_7B"
+    t.date     "week_8A"
+    t.date     "week_8B"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.integer  "makeups_day_1"
@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(version: 20170314214023) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "user_cohort"
+    t.string   "user_name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

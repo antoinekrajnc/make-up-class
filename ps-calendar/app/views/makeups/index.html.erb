@@ -1,50 +1,47 @@
-<h1>Make-ups</h1>
+<h1 class="calendar-title d-flex justify-content-center mt-4 mb-3">Week Calendar</h1>
+<h6 class="intro-p mb-5">If you missed a class or will miss a class, you can make it up! Below you will see the week calendar of our classes. Click on "Makeup" to see if a spot is available and book it. </h6>
 
-<div class="dropdown d-flex center">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Location
-  </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="#">San Francisco</a>
-    <a class="dropdown-item" href="#">Santa Clara</a>
-    <a class="dropdown-item" href="#">New York</a>
-    <a class="dropdown-item" href="#">Los Angeles</a>
-  </div>
 </div>
-<div class="d-flex flex-row center justify-content-around">
+<div class="container d-flex flex-row center justify-content-around">
   <% for i in 0..6 do %>
   <% date = Date.today + i %>
-   <div class = "flex-column bg-danger text-white rounded col-1">
-      <h6><%= "#{date.month} /#{date.day}"%></h6>
-      <% for j in 1..Cohort.all.size do %>
-        <% cohort = Cohort.find(j) %>
-          <% cohort.attributes.each_pair do |name, value| %>
-            <% if date == value %>
-            <div = "d-flex flex-start">
-              <p class="row-1 m-0"><%=link_to "#{cohort.title} #{name}", new_makeup_path(@makeup, clicked_cohort:"#{cohort.title}", clicked_day: "#{name}")%><p>
-            </div>
-            <% end %>
-          <% end %>
-        <%end%>
-  </div>
+  <% weekday = date.wday %>
+    <% if weekday == 1 %>
+      <% weekday = "Monday" %>
+      <% elsif weekday == 2 %>
+      <% weekday = "Tuesday" %>
+      <% elsif weekday == 3 %>
+      <% weekday = "Wednesday" %>
+      <% elsif weekday == 4 %>
+      <% weekday = "Thursday" %>
+      <% elsif weekday == 6 %>
+      <% weekday = "Saturday" %>
+    <%end%>
+    <% if weekday == 0 || weekday == 5 %>
+    <% else %>
+     <div class = "class-day rounded col-2">
+       <h6 class="d-flex justify-content-center"><%="#{weekday}"%></h6>
+        <h6 class="d-flex justify-content-center mb-4"><%= "#{date.month}-#{date.day}"%></h6>
+        <hr class="separator m-0 ml-2"></hr>
+          <% for j in 1..Cohort.all.size do %>
+            <% cohort = Cohort.find(j) %>
+              <% cohort.attributes.each_pair do |name, value| %>
+                <% if date == value %>
+                <div class="d-flex flex-row align-items-center">
+                    <div = "d-flex flex-start">
+                      <p class="row-1 m-0 ml-2 mt-4">Cohort: <%="#{cohort.title[0..7]}"%></p>
+                      <p class="row-1 m-0 ml-2">Class: <%= "#{name[5..7]}"%></p>
+                    </div>
+                    <button class="makeup-button mt-3 ml-2"><%=link_to "Makeup", new_makeup_path(@makeup, clicked_cohort:"#{cohort.title}", clicked_day: "#{name}")%></button>
+                </div>
+                <% end %>
+              <% end %>
+          <%end%>
+       </div>
+      <% end %>
   <% end %>
 </div>
-<!--<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @makeups.each do |makeup| %>
-      <tr>
-        <td><%= link_to 'Show', makeup %></td>
-        <td><%= link_to 'Edit', edit_makeup_path(makeup) %></td>
-        <td><%= link_to 'Destroy', makeup, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>-->
+ <div class="more-dates">
+   <button class="more-dates-button mt-3 ml-2"><%=link_to "More Dates", all_dates_path()%></button>
+ </div>

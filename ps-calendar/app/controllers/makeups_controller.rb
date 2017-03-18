@@ -1,7 +1,7 @@
 class MakeupsController < ApplicationController
   before_action :set_makeup, only: [:edit, :update, :destroy]
-  before_action :check_if_available, only: [:new]
-  after_action :free_a_spot, only: [:new]
+  before_action :check_if_available, only: [:new, :all_dates]
+  after_action :free_a_spot, only: [:new, :all_dates]
   load_and_authorize_resource  only: [:edit, :update, :destroy]
 
   # GET /makeups
@@ -10,6 +10,11 @@ class MakeupsController < ApplicationController
     @makeups = Makeup.all
   end
 
+  # GET /makeups/all_dates
+
+  def all_dates
+    @makeups = Makeup.all
+  end
   # GET /makeups/1
   # GET /makeups/1.json
   def show
