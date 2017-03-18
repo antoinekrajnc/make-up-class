@@ -103,7 +103,7 @@
 
 .calendar-day {
   border: 1px solid black;
-  max-height: 150px;
+  height: 150px;
   }
 .all-dates-day {
   font-size: 10px;
