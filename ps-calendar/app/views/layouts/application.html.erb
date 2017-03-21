@@ -9,9 +9,6 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <% if alert %>
-    <p class="alert"><%= alert %></p>
-  <% end %>
   <!--NAV BAR -->
 
        <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -30,6 +27,9 @@
           </div>
         </nav>
   <!-- /NAV BAR-->
+  <% if alert %>
+    <p class="alert"><%= alert %></p>
+  <% end %>
 
 
   <body>

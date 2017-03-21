@@ -7,19 +7,19 @@
   <% date = Date.today + i %>
   <% weekday = date.wday %>
     <% if weekday == 1 %>
-      <% weekday = "Monday" %>
-      <% elsif weekday == 2 %>
-      <% weekday = "Tuesday" %>
-      <% elsif weekday == 3 %>
-      <% weekday = "Wednesday" %>
-      <% elsif weekday == 4 %>
-      <% weekday = "Thursday" %>
-      <% elsif weekday == 6 %>
-      <% weekday = "Saturday" %>
-    <%end%>
+        <% weekday = "Monday" %>
+        <% elsif weekday == 2 %>
+        <% weekday = "Tuesday" %>
+        <% elsif weekday == 3 %>
+        <% weekday = "Wednesday" %>
+        <% elsif weekday == 4 %>
+        <% weekday = "Thursday" %>
+        <% elsif weekday == 6 %>
+        <% weekday = "Saturday" %>
+     <%end%>
     <% if weekday == 0 || weekday == 5 %>
     <% else %>
-     <div class = "class-day rounded col-2">
+     <div class = "class-day rounded col-2" id= <%="#{weekday}" %>>
        <h6 class="d-flex justify-content-center"><%="#{weekday}"%></h6>
         <h6 class="d-flex justify-content-center mb-4"><%= "#{date.month}-#{date.day}"%></h6>
         <hr class="separator m-0 ml-2"></hr>
@@ -27,19 +27,114 @@
             <% cohort = Cohort.find(j) %>
               <% cohort.attributes.each_pair do |name, value| %>
                 <% if date == value %>
-                <div class="d-flex flex-row align-items-center">
-                    <div = "d-flex flex-start">
-                      <p class="row-1 m-0 ml-2 mt-4">Cohort: <%="#{cohort.title[0..7]}"%></p>
-                      <p class="row-1 m-0 ml-2">Class: <%= "#{name[5..7]}"%></p>
-                    </div>
-                    <button class="makeup-button mt-3 ml-2"><%=link_to "Makeup", new_makeup_path(@makeup, clicked_cohort:"#{cohort.title}", clicked_day: "#{name}")%></button>
-                </div>
+                  <div class="d-flex flex-row align-items-center">
+                      <div = "d-flex flex-start">
+                        <p class="row-1 m-0 ml-2 mt-4">Cohort: <%="#{cohort.title[0..7]}"%></p>
+                        <p class="row-1 m-0 ml-2">Class: <%= "#{name[5..7]}"%></p>
+                      </div>
+                      <button class="makeup-button mt-3 ml-2"><%=link_to "Makeup", new_makeup_path(@makeup, clicked_cohort:"#{cohort.title}", clicked_day: "#{name}")%></button>
+                  </div>
                 <% end %>
               <% end %>
           <%end%>
        </div>
       <% end %>
   <% end %>
+  <script>
+  var count_Monday = $("#Monday").children("div").length
+  var count_Tuesday = $("#Tuesday").children("div").length
+  var count_Wednesday = $("#Wednesday").children("div").length
+  var count_Thursday = $("#Thursday").children("div").length
+  var count_Saturday = $("#Saturday").children("div").length
+
+
+  for (var i = 0; i < Math.max(count_Monday, count_Tuesday, count_Wednesday, count_Thursday, count_Saturday); i++) {
+
+    monday_divs = $("#Monday").children("div").addClass(function(i){
+      count_div ="monday-" + i
+      return count_div
+    });
+    tuesday_divs = $("#Tuesday").children("div").addClass(function(i){
+      count_div = "tuesday-"+ i
+      return count_div
+    });
+    wednesday_divs = $("#Wednesday").children("div").addClass(function(i){
+      count_div = "wednesday-"+i
+      return count_div
+    });
+    thursday_divs = $("#Thursday").children("div").addClass(function(i){
+      count_div = "thursday-"+i
+      return count_div
+    });
+    saturday_divs = $("#Saturday").children("div").addClass(function(i){
+      count_div = "saturday-"+i
+      return count_div
+    });
+
+    if (i > 2){
+      $(".monday-"+i).children().hide();
+      $(".tuesday-"+i).children().hide();
+      $(".wednesday-"+i).children().hide();
+      $(".thursday-"+i).children().hide();
+      $(".saturday-"+i).children().hide();
+    };
+
+  };
+
+    var hiddenMondayMakeups = $(".monday-3").children().is(":hidden");
+    var hiddenTuesdayMakeups = $(".tuesday-3").children().is(":hidden");
+    var hiddenWednesdayMakeups = $(".wednesday-3").children().is(":hidden");
+    var hiddenThursdayMakeups = $(".thursday-3").children().is(":hidden");
+    var hiddenSaturdayMakeups = $(".saturday-3").children().is(":hidden");
+
+    if (hiddenMondayMakeups == true){
+      $("<p class='show-more-button' id='monday-button-more'>More / Less Cohorts</p>").appendTo("#Monday")
+    };
+
+    if (hiddenTuesdayMakeups == true){
+      $("<p class='show-more-button' id='tuesday-button-more'>More / Less Cohorts</p>").appendTo("#Tuesday")
+    };
+    if (hiddenWednesdayMakeups == true){
+      $("<p class='show-more-button' id='wednesday-button-more'>More / Less Cohorts</p>").appendTo("#Wednesday")
+    };
+    if (hiddenThursdayMakeups == true){
+      $("<p class='show-more-button' id='thursday-button-more'>More / Less Cohorts</p>").appendTo("#Thursday")
+    };
+    if (hiddenSaturdayMakeups == true){
+      $("<p class='show-more-button' id='saturday-button-more'>More / Less Cohorts</p>").appendTo("#Saturday")
+    };
+
+    $("#monday-button-more").click(function(){
+      for (var i = 3; i < 10; i++) {
+        $(".monday-"+i).children().toggle()
+      };
+    });
+
+    $("#tuesday-button-more").click(function(){
+      for (var i = 3; i < 10; i++) {
+        $(".tuesday-"+i).children().toggle()
+      };
+    });
+
+    $("#wednesday-button-more").click(function(){
+      for (var i = 3; i < 10; i++) {
+        $(".wednesday-"+i).children().toggle()
+      };
+    });
+
+    $("#thursday-button-more").click(function(){
+      for (var i = 3; i < 10; i++) {
+        $(".thursday-"+i).children().toggle()
+      };
+    });
+
+    $("#saturday-button-more").click(function(){
+      for (var i = 3; i < 10; i++) {
+        $(".saturday-"+i).children().toggle()
+      };
+    });
+
+  </script>
 </div>
 
  <div class="more-dates">
