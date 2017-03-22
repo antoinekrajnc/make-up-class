@@ -1,26 +1,29 @@
-<h2>Log in</h2>
+<div class="container col-3">
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+  <h2 class="m-5 d-flex justify-content-center">Log in</h2>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name), :html => {:class => "d-flex flex-column justify-content-center"}) do |f| %>
+    <div class="m-2 d-flex justify-content-center flex-column">
+      <span><%= f.label :email %></span>
+      <span class="input-field"><%= f.email_field :email, autofocus: true %></span>
     </div>
-  <% end -%>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
+    <div class="m-2 mt-4 d-flex justify-content-center flex-column">
+      <span><%= f.label :password %></span>
+      <span class="input-field"><%= f.password_field :password, autocomplete: "off" %></span>
+    </div>
 
-<%= render "devise/shared/links" %>
+    <% if devise_mapping.rememberable? -%>
+      <div class="m-2 d-flex justify-content-center flex-row">
+        <span><%= f.check_box :remember_me %></span>
+        <span class="ml-2"><%= f.label :remember_me %></span>
+      </div>
+    <% end -%>
+
+    <div class="actions d-flex justify-content-center">
+      <span class="submit-button"><%= f.submit "Log in" %></span>
+    </div>
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+</div>

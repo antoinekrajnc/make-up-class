@@ -120,3 +120,46 @@
   text-align: center;
   padding: 1px 5px;
 }
+
+.more-dates-link a {
+   background-color: transparent;
+   border: 2px solid #25d9c8;
+   border-radius:25px;
+   color: #25d9c8;
+   box-shadow: none;
+   padding: 7px;
+   font-size: 14px;
+}
+
+.more-dates-link a:hover {
+  text-decoration: none;
+  background-color: #25d9c8;
+  color: #FFF;
+}
+
+.input-field input {
+  outline:none;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.submit-button input {
+  color:white;
+  background: #25d9c8;
+  border-radius:10px;
+  border:none;
+  width:126px;
+  height:25px;
+  font-size: 15px;
+}
+
+.submit-button input:active{
+  outline: none;
+  box-shadow: inset 0 0 0 0px #27496d, 0 2px 5px #193047;
+}
+
+.submit-button input:hover {
+  box-shadow: 3px 3px 3px rgba(30, 173, 160, 0.4);
+  text-decoration: none;
+  border:none;
+}

@@ -1,7 +1,7 @@
-<%= form_for (makeup) do |f| %>
+<%= form_for(makeup, :html => {:class => "d-flex flex-column justify-content-center"}) do |f| %>
   <% if makeup.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(makeup.errors.count, "error") %> prohibited this makeup from being saved:</h2>
+      <h2 class="m-5 d-flex justify-content-center"><%= pluralize(makeup.errors.count, "error") %> prohibited this makeup from being saved:</h2>
 
       <ul>
       <% makeup.errors.full_messages.each do |message| %>
@@ -10,34 +10,34 @@
 
   <% end %>
 
-  <div class="actions">
-    <%= @spot_available %>
+  <div class="actions d-flex justify-content-center flex-column">
+    <span class="d-flex justify-content-center"><strong><%= @spot_available %></strong></span>
 
     <% if @spot_available != "Sorry no spots available" %>
-      <div class="">
+      <div class="m-2 d-flex justify-content-center flex-column">
         <%= f.label :Name%>
-        <%= f.text_field :user_name, :required => true %>
+        <span class="input-field"><%= f.text_field :user_name, :required => true %></span>
       </div>
-      <div class="">
+      <div class="m-2 d-flex justify-content-center flex-column">
         <%= f.label :Email%>
-        <%= f.email_field :user_email, :required => true %>
+        <span class="input-field"><%= f.email_field :user_email, :required => true %></span>
       </div>
-      <div class="">
+      <div class="m-2 d-flex justify-content-center flex-column">
         <%= f.label :Your_cohort%>
-        <%= f.text_field :user_cohort, :required => true %>
+        <span class="input-field"><%= f.text_field :user_cohort, :required => true %></span>
       </div>
-      <div class="">
+      <div class="m-2 d-flex justify-content-center flex-column">
         <%= f.label :clicked_cohort%>
-        <%= f.text_field :clicked_cohort, :required => true, :value => params[:clicked_cohort] %>
+        <span class="input-field"><%= f.text_field :clicked_cohort, :required => true, :value => params[:clicked_cohort] %></span>
       </div>
-      <div class="">
+      <div class="m-2 d-flex justify-content-center flex-column">
         <%= f.label :clicked_day%>
-        <%= f.text_field :clicked_day, :required => true, :value => params[:clicked_day] %>
+        <span class="input-field"><%= f.text_field :clicked_day, :required => true, :value => params[:clicked_day] %></span>
       </div>
       </ul>
     </div>
 
-      <%= f.submit %>
+      <span class="submit-button d-flex justify-content-center"><%= f.submit "Confirm Makeup" %></span>
     <% end %>
   </div>
 <% end %>

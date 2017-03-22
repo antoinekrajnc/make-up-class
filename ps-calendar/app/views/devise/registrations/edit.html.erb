@@ -1,53 +1,51 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="container col-3">
+  <h2 class="m-5 d-flex justify-content-center">Edit <%= resource_name.to_s.humanize %></h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "d-flex flex-column justify-content-center" }) do |f| %>
+    <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :Name %><br />
-    <%= f.text_field :user_name, autofocus: true %>
-  </div>
+    <div class="m-2 d-flex justify-content-center flex-column">
+      <%= f.label :Name %>
+      <span class="input-field"><%= f.text_field :user_name, autofocus: true %></span>
+    </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+    <div class="m-2 d-flex justify-content-center flex-column">
+      <%= f.label :email %>
+      <span class="input-field"><%= f.email_field :email, autofocus: true %>
+    </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <% end %>
+
+    <div class="m-2 d-flex justify-content-center flex-column">
+      <%= f.label :Your_cohort %>
+      <span class="input-field"><%= f.text_field :user_cohort, autocomplete: "off" %></span>
+    </div>
+
+    <div class="m-2 d-flex justify-content-center flex-column">
+      <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+      <span class="input-field"><%= f.password_field :password, autocomplete: "off" %></span>
+      <% if @minimum_password_length %>
+
+        <em><%= @minimum_password_length %> characters minimum</em>
+      <% end %>
+    </div>
+
+    <div class="m-2 d-flex justify-content-center flex-column">
+      <%= f.label :password_confirmation %>
+      <span class="input-field"><%= f.password_field :password_confirmation, autocomplete: "off" %></span>
+    </div>
+
+    <div class="m-2 d-flex justify-content-center flex-column">
+      <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i>
+      <span class="input-field"><%= f.password_field :current_password, autocomplete: "off" %></span>
+    </div>
+
+    <div class="m-2 mt-4 d-flex justify-content-center">
+      <span class="submit-button"><%= f.submit "Update" %></span>
+    </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :Your_cohort %><br />
-    <%= f.text_field :user_cohort, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+  <span class="m-2"><%= link_to "Back", :back %></span>
+</div>
