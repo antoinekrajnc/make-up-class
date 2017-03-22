@@ -41,98 +41,98 @@
       <% end %>
   <% end %>
   <script>
-  var count_Monday = $("#Monday").children("div").length
-  var count_Tuesday = $("#Tuesday").children("div").length
-  var count_Wednesday = $("#Wednesday").children("div").length
-  var count_Thursday = $("#Thursday").children("div").length
-  var count_Saturday = $("#Saturday").children("div").length
+    var count_Monday = $("#Monday").children("div").length
+    var count_Tuesday = $("#Tuesday").children("div").length
+    var count_Wednesday = $("#Wednesday").children("div").length
+    var count_Thursday = $("#Thursday").children("div").length
+    var count_Saturday = $("#Saturday").children("div").length
 
 
-  for (var i = 0; i < Math.max(count_Monday, count_Tuesday, count_Wednesday, count_Thursday, count_Saturday); i++) {
+    for (var i = 0; i < Math.max(count_Monday, count_Tuesday, count_Wednesday, count_Thursday, count_Saturday); i++) {
 
-    monday_divs = $("#Monday").children("div").addClass(function(i){
-      count_div ="monday-" + i
-      return count_div
-    });
-    tuesday_divs = $("#Tuesday").children("div").addClass(function(i){
-      count_div = "tuesday-"+ i
-      return count_div
-    });
-    wednesday_divs = $("#Wednesday").children("div").addClass(function(i){
-      count_div = "wednesday-"+i
-      return count_div
-    });
-    thursday_divs = $("#Thursday").children("div").addClass(function(i){
-      count_div = "thursday-"+i
-      return count_div
-    });
-    saturday_divs = $("#Saturday").children("div").addClass(function(i){
-      count_div = "saturday-"+i
-      return count_div
-    });
+      monday_divs = $("#Monday").children("div").addClass(function(i){
+        count_div ="monday-" + i
+        return count_div
+      });
+      tuesday_divs = $("#Tuesday").children("div").addClass(function(i){
+        count_div = "tuesday-"+ i
+        return count_div
+      });
+      wednesday_divs = $("#Wednesday").children("div").addClass(function(i){
+        count_div = "wednesday-"+i
+        return count_div
+      });
+      thursday_divs = $("#Thursday").children("div").addClass(function(i){
+        count_div = "thursday-"+i
+        return count_div
+      });
+      saturday_divs = $("#Saturday").children("div").addClass(function(i){
+        count_div = "saturday-"+i
+        return count_div
+      });
 
-    if (i > 2){
-      $(".monday-"+i).children().hide();
-      $(".tuesday-"+i).children().hide();
-      $(".wednesday-"+i).children().hide();
-      $(".thursday-"+i).children().hide();
-      $(".saturday-"+i).children().hide();
-    };
-
-  };
-
-    var hiddenMondayMakeups = $(".monday-3").children().is(":hidden");
-    var hiddenTuesdayMakeups = $(".tuesday-3").children().is(":hidden");
-    var hiddenWednesdayMakeups = $(".wednesday-3").children().is(":hidden");
-    var hiddenThursdayMakeups = $(".thursday-3").children().is(":hidden");
-    var hiddenSaturdayMakeups = $(".saturday-3").children().is(":hidden");
-
-    if (hiddenMondayMakeups == true){
-      $("<p class='show-more-button' id='monday-button-more'>More / Less Cohorts</p>").appendTo("#Monday")
-    };
-
-    if (hiddenTuesdayMakeups == true){
-      $("<p class='show-more-button' id='tuesday-button-more'>More / Less Cohorts</p>").appendTo("#Tuesday")
-    };
-    if (hiddenWednesdayMakeups == true){
-      $("<p class='show-more-button' id='wednesday-button-more'>More / Less Cohorts</p>").appendTo("#Wednesday")
-    };
-    if (hiddenThursdayMakeups == true){
-      $("<p class='show-more-button' id='thursday-button-more'>More / Less Cohorts</p>").appendTo("#Thursday")
-    };
-    if (hiddenSaturdayMakeups == true){
-      $("<p class='show-more-button' id='saturday-button-more'>More / Less Cohorts</p>").appendTo("#Saturday")
-    };
-
-    $("#monday-button-more").click(function(){
-      for (var i = 3; i < 10; i++) {
-        $(".monday-"+i).children().toggle()
+      if (i > 2){
+        $(".monday-"+i).children().hide();
+        $(".tuesday-"+i).children().hide();
+        $(".wednesday-"+i).children().hide();
+        $(".thursday-"+i).children().hide();
+        $(".saturday-"+i).children().hide();
       };
-    });
 
-    $("#tuesday-button-more").click(function(){
-      for (var i = 3; i < 10; i++) {
-        $(".tuesday-"+i).children().toggle()
-      };
-    });
+    };
 
-    $("#wednesday-button-more").click(function(){
-      for (var i = 3; i < 10; i++) {
-        $(".wednesday-"+i).children().toggle()
-      };
-    });
+      var hiddenMondayMakeups = $(".monday-3").children().is(":hidden");
+      var hiddenTuesdayMakeups = $(".tuesday-3").children().is(":hidden");
+      var hiddenWednesdayMakeups = $(".wednesday-3").children().is(":hidden");
+      var hiddenThursdayMakeups = $(".thursday-3").children().is(":hidden");
+      var hiddenSaturdayMakeups = $(".saturday-3").children().is(":hidden");
 
-    $("#thursday-button-more").click(function(){
-      for (var i = 3; i < 10; i++) {
-        $(".thursday-"+i).children().toggle()
+      if (hiddenMondayMakeups == true){
+        $("<p class='show-more-button' id='monday-button-more'>More / Less Cohorts</p>").appendTo("#Monday")
       };
-    });
 
-    $("#saturday-button-more").click(function(){
-      for (var i = 3; i < 10; i++) {
-        $(".saturday-"+i).children().toggle()
+      if (hiddenTuesdayMakeups == true){
+        $("<p class='show-more-button' id='tuesday-button-more'>More / Less Cohorts</p>").appendTo("#Tuesday")
       };
-    });
+      if (hiddenWednesdayMakeups == true){
+        $("<p class='show-more-button' id='wednesday-button-more'>More / Less Cohorts</p>").appendTo("#Wednesday")
+      };
+      if (hiddenThursdayMakeups == true){
+        $("<p class='show-more-button' id='thursday-button-more'>More / Less Cohorts</p>").appendTo("#Thursday")
+      };
+      if (hiddenSaturdayMakeups == true){
+        $("<p class='show-more-button' id='saturday-button-more'>More / Less Cohorts</p>").appendTo("#Saturday")
+      };
+
+      $("#monday-button-more").click(function(){
+        for (var i = 3; i < 15; i++) {
+          $(".monday-"+i).children().toggle()
+        };
+      });
+
+      $("#tuesday-button-more").click(function(){
+        for (var i = 3; i < 15; i++) {
+          $(".tuesday-"+i).children().toggle()
+        };
+      });
+
+      $("#wednesday-button-more").click(function(){
+        for (var i = 3; i < 15; i++) {
+          $(".wednesday-"+i).children().toggle()
+        };
+      });
+
+      $("#thursday-button-more").click(function(){
+        for (var i = 3; i < 15; i++) {
+          $(".thursday-"+i).children().toggle()
+        };
+      });
+
+      $("#saturday-button-more").click(function(){
+        for (var i = 3; i < 15; i++) {
+          $(".saturday-"+i).children().toggle()
+        };
+      });
 
   </script>
 </div>

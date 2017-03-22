@@ -102,10 +102,11 @@
 
 .calendar-day {
   border: 1px solid black;
-  height: 150px;
+  min-height: 200px;
+  height: auto;
   }
 .all-dates-day {
-  font-size: 10px;
+  font-size: 12px;
 }
 
 #monday-button-more,

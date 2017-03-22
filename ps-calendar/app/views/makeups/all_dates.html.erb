@@ -29,10 +29,10 @@
 <% month_beginning = Date.today.beginning_of_month %>
 <% month_end = Date.today.end_of_month.day %>
 
-  <div class="d-flex flex-row flex-wrap">
+  <div class="d-flex flex-row flex-wrap container">
     <% for i in 0..month_end -1%>
       <% month_day = month_beginning + i %>
-      <div class="calendar-day col-sm-2">
+      <div class="calendar-day col-sm-2" id=<%=i%>>
         <h1 class="inline"><%= month_day.day %></h1>
       <% for j in 1..Cohort.all.size %>
         <% cohort = Cohort.find(j) %>
@@ -50,4 +50,33 @@
       <%end %>
       </div>
     <% end %>
+    <script>
+    for (var i = 0; i < 30; i++) {
+      var count_div_each_day = $("#"+i).children("div").length
+
+          for (var j = 0; j < 15; j++) {
+            var add_class_to_makeups = $('#'+i).children("div").addClass(function(j){
+              count_div = i + "-" + j
+              return count_div
+            });
+
+            if (j > 1) {
+                $("."+i+"-"+j).children().hide()
+              };
+            };
+            var hiddenMakeups = $("."+i+"-2").children("div").is(":hidden")
+              if (hiddenMakeups == true){
+                $("<p class='m-2 mt-3' id="+i+"-button-more>More / Less Cohorts</p>").appendTo("#"+i)
+            };
+
+            $("#"+i+"-button-more").click(function(){
+              for (var i = 0; i < 30; i++) {
+                for (var k = 2; k < 20; k++) {
+                  $("."+i+"-"+k).children().toggle()
+                };
+              }
+            });
+          }
+
+    </script>
   </div>
