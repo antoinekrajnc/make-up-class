@@ -38,8 +38,9 @@
       end
     end
     %>
-    <span class="input-field"><%= f.select :user_cohort, options_for_select(@select_cohort)%></span>
+    <div class="input-field d-flex flex-row"><%= f.select :user_cohort, options_for_select(@select_cohort)%> <div id="options_explanation"><p class="mb-2"><strong>How to choose?</strong></p><p class="mt-2 mb-0">Your cohort's name is as follow:</p><p class="mt-3"><strong>Location - Program - Start Date - Day of class - Batch Number</strong></p></div></div>
   </div>
+
 
   <div class="m-2 mt-4 d-flex justify-content-center">
     <span class="submit-button"><%= f.submit "Sign up" %></span>
@@ -47,5 +48,13 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+<script>
+  $("#options_explanation").hide();
+  $("#user_user_cohort").hover(function(){
+    $("#options_explanation").show();
+  })
+
+</script>
 
 </div>

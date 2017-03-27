@@ -49,6 +49,7 @@
   background-image: linear-gradient(to right, #85d6cd 0%, #ACE1D2 100%);
   box-shadow: 0px 3px 12px rgba(30, 173, 160, 0.4);
   padding:3px;
+  min-height: 250px;
 }
 
 .calendar-title {
@@ -141,6 +142,22 @@
   outline:none;
   border-radius: 5px;
   width: 100%;
+}
+
+.input-field select {
+  background-color: white;
+  height: 25px;
+  width: 100%;
+  cursor: pointer;
+}
+
+#options_explanation {
+  display: table;
+  position: absolute;
+  left: 350px;
+  bottom: 30px;
+  border: 1px solid lightgrey;
+  border-radius: 10px;
 }
 
 .submit-button input {

@@ -18,10 +18,19 @@
       <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
     <% end %>
 
-    <div class="m-2 d-flex justify-content-center flex-column">
+    <div class="m-2 mt-4 d-flex justify-content-center flex-column">
       <%= f.label :Your_cohort %>
-      <span class="input-field"><%= f.text_field :user_cohort, autocomplete: "off" %></span>
+      <% @select_cohort = [] %>
+      <% Cohort.all.map do |c|
+          if c.week_1A == nil
+          elsif c.week_1A > Date.today - 1.month and c.week_1A < Date.today + 1.month
+          @select_cohort += ["#{c.title}"]
+        end
+      end
+      %>
+      <div class="input-field d-flex flex-row"><%= f.select :user_cohort, options_for_select(@select_cohort)%> </div>
     </div>
+
 
     <div class="m-2 d-flex justify-content-center flex-column">
       <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
