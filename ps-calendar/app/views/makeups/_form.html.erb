@@ -15,22 +15,13 @@
 
     <% if @spot_available != "Sorry no spots available" %>
       <div class="m-2 d-flex justify-content-center flex-column">
-        <%= f.label :Name%>
-        <span class="input-field"><%= f.text_field :user_name, :required => true %></span>
+        <h6 class="text-center mt-5">You are about to make up <strong><%= params[:clicked_day] %></strong> class in <strong><%= params[:clicked_cohort] %></strong> cohort. Click on confirm cohort if this information is correct</h6>
       </div>
-      <div class="m-2 d-flex justify-content-center flex-column">
-        <%= f.label :Email%>
-        <span class="input-field"><%= f.email_field :user_email, :required => true %></span>
-      </div>
-      <div class="m-2 d-flex justify-content-center flex-column">
-        <%= f.label :Your_cohort%>
-        <span class="input-field"><%= f.text_field :user_cohort, :required => true %></span>
-      </div>
-      <div class="m-2 d-flex justify-content-center flex-column">
+      <div class="m-2 d-flex justify-content-center flex-column invisible">
         <%= f.label :clicked_cohort%>
         <span class="input-field"><%= f.text_field :clicked_cohort, :required => true, :value => params[:clicked_cohort] %></span>
       </div>
-      <div class="m-2 d-flex justify-content-center flex-column">
+      <div class="m-2 d-flex justify-content-center flex-column invisible">
         <%= f.label :clicked_day%>
         <span class="input-field"><%= f.text_field :clicked_day, :required => true, :value => params[:clicked_day] %></span>
       </div>

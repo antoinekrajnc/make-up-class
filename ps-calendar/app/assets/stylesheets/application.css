@@ -106,8 +106,26 @@
   min-height: 200px;
   height: auto;
   }
-.all-dates-day {
+
+.all-dates-day a{
   font-size: 12px;
+  background-color: transparent;
+  border: 1px solid #25d9c8;
+  color: #25d9c8;
+  border-radius:10px;
+  box-shadow: none;
+  padding: 3px;
+  margin-left: 5px;
+}
+
+.all-dates-day a:hover {
+  text-decoration: none;
+  background-color: #25d9c8;
+  color: #FFF;
+}
+
+.show-more-button {
+  cursor: pointer;
 }
 
 #monday-button-more,
@@ -179,4 +197,24 @@
   box-shadow: 3px 3px 3px rgba(30, 173, 160, 0.4);
   text-decoration: none;
   border:none;
+}
+
+@media (min-width: 1500px) {
+  #options_explanation {
+    left:550px;
+  }
+}
+
+@media (max-width: 450px) {
+  #greetings {
+    display:none;
+  }
+  #weekday-makeups {
+    width: 100%;
+    flex-direction: column;
+  }
+  .class-day {
+    width: 75%;
+    margin-bottom: 50px;
+  }
 }

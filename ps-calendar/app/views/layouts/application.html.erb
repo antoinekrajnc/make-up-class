@@ -17,11 +17,11 @@
             <a class="navbar-brand" href="../makeups#index"><img src="/assets/logo.png" alt="can't find photo"></a>
               <div class="d-flex flex-row align-items-center">
                 <% if user_signed_in? %>
-                  <p class="text-white m-0 mr-3">Hello <strong><%= current_user.user_name %></strong></p>
-                  <%= link_to 'Edit profile |', edit_user_registration_path, :class => 'navbar-link text-white mr-2' %>
+                  <p class="text-white m-0 mr-3" id="greetings">Hello <strong><%= current_user.user_name %></strong></p>
+                  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link text-white mr-3' %>
                   <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link text-white'  %>
                 <% else %>
-                  <%= link_to "Sign up |", new_user_registration_path, :class => 'navbar-link text-white'  %>
+                  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link text-white mr-3'  %>
                   <%= link_to " Login", new_user_session_path, :class => 'navbar-link text-white'  %>
                 <% end %>
             </div>

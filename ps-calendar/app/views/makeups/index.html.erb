@@ -2,7 +2,7 @@
 <h6 class="intro-p mb-5">If you missed a class or will miss a class, you can make it up! Below you will see the week calendar of our classes. Click on "Makeup" to see if a spot is available and book it. </h6>
 
 </div>
-<div class="container d-flex flex-row center justify-content-around">
+<div class="container d-flex flex-row center justify-content-around flex-wrap" id="weekday-makeups">
   <% for i in 0..6 do %>
   <% date = Date.today + i %>
   <% weekday = date.wday %>
@@ -19,7 +19,7 @@
      <%end%>
     <% if weekday == 0 || weekday == 5 %>
     <% else %>
-     <div class = "class-day rounded col-2" id= <%="#{weekday}" %>>
+     <div class = "class-day rounded col-sm-8 col-md-2 mb-sm-4" id= <%="#{weekday}" %>>
        <h6 class="d-flex justify-content-center"><%="#{weekday}"%></h6>
         <h6 class="d-flex justify-content-center mb-4"><%= "#{date.month}-#{date.day}"%></h6>
         <hr class="separator m-0 ml-2"></hr>
@@ -27,8 +27,8 @@
             <% cohort = Cohort.find(j) %>
               <% cohort.attributes.each_pair do |name, value| %>
                 <% if date == value %>
-                  <div class="d-flex flex-row align-items-center">
-                      <div = "d-flex flex-start">
+                  <div class="d-flex flex-row align-items-center justify-content-center">
+                      <div = "d-flex">
                         <p class="row-1 m-0 ml-2 mt-4">Cohort: <%="#{cohort.title[0..7]}"%></p>
                         <p class="row-1 m-0 ml-2">Class: <%= "#{name[5..7]}"%></p>
                       </div>

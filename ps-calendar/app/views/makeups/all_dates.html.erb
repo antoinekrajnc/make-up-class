@@ -1,49 +1,49 @@
 <% date = Date.today.month %>
 <% if date == 1 %>
-<% date = "January" %>
+<% date_string = "January" %>
 <% elsif date == 2 %>
-<% date = "February"%>
+<% date_string = "February"%>
 <% elsif date == 3 %>
-<% date = "March"%>
+<% date_string = "March"%>
 <% elsif date == 4 %>
-<% date = "April"%>
+<% date_string = "April"%>
 <% elsif date == 5 %>
-<% date = "May"%>
+<% date_string = "May"%>
 <% elsif date == 6 %>
-<% date = "June"%>
+<% date_string = "June"%>
 <% elsif date == 7 %>
-<% date = "July"%>
+<% date_string = "July"%>
 <% elsif date == 8 %>
-<% date = "August"%>
+<% date_string = "August"%>
 <% elsif date == 9 %>
-<% date = "September"%>
+<% date_string = "September"%>
 <% elsif date == 10 %>
-<% date = "October"%>
+<% date_string = "October"%>
 <% elsif date == 11 %>
-<% date = "November"%>
+<% date_string = "November"%>
 <% elsif date == 12 %>
-<% date = "December"%>
+<% date_string = "December"%>
 <% end %>
 
-<h1 class="calendar-title d-flex justify-content-center mt-4 mb-3"><%= date %> Calendar</h1>
+<h1 class="calendar-title d-flex justify-content-center mt-4 mb-3"><%= date_string %> Calendar</h1>
 <% month_beginning = Date.today.beginning_of_month %>
 <% month_end = Date.today.end_of_month.day %>
 
   <div class="d-flex flex-row flex-wrap container">
     <% for i in 0..month_end -1%>
       <% month_day = month_beginning + i %>
-      <div class="calendar-day col-sm-2" id=<%=i%>>
+      <div class="calendar-day col-sm-2 pr-2 pl-2" id=<%=i%>>
         <h1 class="inline"><%= month_day.day %></h1>
       <% for j in 1..Cohort.all.size %>
         <% cohort = Cohort.find(j) %>
         <% cohort.attributes.each_pair do |name, value|%>
           <% if month_day == value %>
-            <div class="d-flex flex-row align-items-center">
+            <div class="d-flex flex-row align-items-center justify-content-center">
                 <div = "d-flex flex-start">
-                  <p class="all-dates-day row-1 m-0">Cohort: <%="#{cohort.title[0..7]}"%></p>
-                  <p class="all-dates-day row-1 m-0">Class: <%= "#{name[5..7]}"%></p>
+                  <p class="all-dates-day row-1 m-0 mt-1"><strong>Cohort:</strong> <%="#{cohort.title[0..7]}"%></p>
+                  <p class="all-dates-day row-1 m-0"><strong>Class:</strong> <%= "#{name[5..7]}"%></p>
                 </div>
-                <button class="all-dates-day makeup-button"><%=link_to "Makeup", new_makeup_path(@makeup, clicked_cohort:"#{cohort.title}", clicked_day: "#{name}")%></button>
+                <div class="all-dates-day"><%=link_to "Makeup", new_makeup_path(@makeup, clicked_cohort:"#{cohort.title}", clicked_day: "#{name}")%></div>
             </div>
           <%end%>
         <%end%>
@@ -66,7 +66,7 @@
             };
             var hiddenMakeups = $("."+i+"-2").children("div").is(":hidden")
               if (hiddenMakeups == true){
-                $("<p class='m-2 mt-3' id="+i+"-button-more>More / Less Cohorts</p>").appendTo("#"+i)
+                $("<p class='m-2 mt-3 show-more-button d-flex justify-content-center' id="+i+"-button-more>More / Less Cohorts</p>").appendTo("#"+i)
             };
 
             $("#"+i+"-button-more").click(function(){
@@ -77,6 +77,5 @@
               }
             });
           }
-
     </script>
   </div>
