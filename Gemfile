@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 
 gem 'pg', '~> 0.18.4'
 
+gem 'bundler', '>= 1.14.6'
 # Gem to authorize users
 gem "cancancan"
 # Gem to authenticate users
