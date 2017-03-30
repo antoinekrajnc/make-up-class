@@ -45,7 +45,9 @@ group :development, :test do
   gem 'sqlite3'
 end
 
-gem 'rails_12factor'
+group :production do
+  gem 'rails_12factor'
+end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
