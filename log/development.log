@@ -507,3 +507,34 @@ Processing by Devise::RegistrationsController#new as HTML
 Completed 200 OK in 61ms (Views: 51.7ms | ActiveRecord: 4.8ms)
 
 
+Started GET "/users/sign_in" for ::1 at 2017-03-29 21:40:37 -0700
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (11.6ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (30.9ms)
+Completed 200 OK in 935ms (Views: 911.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-03-29 21:49:29 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (3.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by MakeupsController#index as HTML
+Completed 401 Unauthorized in 18ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2017-03-29 21:49:29 -0700
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (35.0ms)
+Completed 200 OK in 451ms (Views: 411.5ms | ActiveRecord: 19.6ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2017-03-29 21:49:35 -0700
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  [1m[36mCohort Load (2.6ms)[0m  [1m[34mSELECT "cohorts".* FROM "cohorts"[0m
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (31.5ms)
+Completed 200 OK in 69ms (Views: 60.7ms | ActiveRecord: 6.9ms)
+
+

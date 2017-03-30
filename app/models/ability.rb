@@ -34,5 +34,6 @@ class Ability
 
       can [:create, :update, :destroy], Makeup do |makeup|
       makeup.user == user
+    end
   end
 end
