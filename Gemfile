@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'databasedotcom'
+gem 'databasedotcom-rails'
 
 gem 'pg', '~> 0.18.4'
 

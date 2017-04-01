@@ -34,16 +34,15 @@
       <% month_day = month_beginning + i %>
       <div class="calendar-day col-sm-2 pr-2 pl-2" id=<%=i%>>
         <h1 class="inline"><%= month_day.day %></h1>
-      <% for j in 1..Cohort.all.size %>
-        <% cohort = Cohort.find(j) %>
-        <% cohort.attributes.each_pair do |name, value|%>
-          <% if month_day == value %>
+        <% @salesforcecohorts.each do |salesforcecohorts| %>
+        <% salesforcecohorts.attributes.each_pair do |name, value| %>
+          <% if month_day == value && name != "Tomorrow__c" && name != "TODAY__c"%>
             <div class="d-flex flex-row align-items-center justify-content-center">
                 <div = "d-flex flex-start">
-                  <p class="all-dates-day row-1 m-0 mt-1"><strong>Cohort:</strong> <%="#{cohort.title[0..7]}"%></p>
-                  <p class="all-dates-day row-1 m-0"><strong>Class:</strong> <%= "#{name[5..7]}"%></p>
+                  <p class="all-dates-day row-1 m-0 mt-1"><strong>Cohort:</strong> <%="#{salesforcecohorts.Name[0..7]}"%></p>
+                  <p class="all-dates-day row-1 m-0"><strong>Class:</strong> <%= "#{name[0..2]}"%></p>
                 </div>
-                <div class="all-dates-day"><%=link_to "Makeup", new_makeup_path(@makeup, clicked_cohort:"#{cohort.title}", clicked_day: "#{name}")%></div>
+                <div class="all-dates-day"><%=link_to "Makeup", new_makeup_path(@makeup, clicked_cohort:"#{salesforcecohorts.Name}", clicked_day: "#{name}", location: "#{salesforcecohorts.Venue_Name__c}")%></div>
             </div>
           <%end%>
         <%end%>

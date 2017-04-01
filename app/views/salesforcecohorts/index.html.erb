@@ -1,0 +1,147 @@
+<h1 class="calendar-title d-flex justify-content-center mt-4 mb-3">Week Calendar</h1>
+<h6 class="intro-p mb-5">If you missed a class or will miss a class, you can make it up! Below you will see the week calendar of our classes. Click on "Makeup" to see if a spot is available and book it. </h6>
+
+</div>
+<div class="container d-flex flex-row center justify-content-around flex-wrap" id="weekday-makeups">
+  <% for i in 0..6 do %>
+  <% date = Date.today + i %>
+  <% weekday = date.wday %>
+    <% if weekday == 1 %>
+        <% weekday = "Monday" %>
+        <% elsif weekday == 2 %>
+        <% weekday = "Tuesday" %>
+        <% elsif weekday == 3 %>
+        <% weekday = "Wednesday" %>
+        <% elsif weekday == 4 %>
+        <% weekday = "Thursday" %>
+        <% elsif weekday == 6 %>
+        <% weekday = "Saturday" %>
+     <%end%>
+    <% if weekday == 0 || weekday == 5 %>
+    <% else %>
+     <div class = "class-day rounded col-sm-8 col-md-2 mb-sm-4" id= <%="#{weekday}" %>>
+       <h6 class="d-flex justify-content-center"><%="#{weekday}"%></h6>
+        <h6 class="d-flex justify-content-center mb-4"><%= "#{date.month}-#{date.day}"%></h6>
+        <hr class="separator m-0 ml-2"></hr>
+          <% @salesforcecohorts.each do |salesforcecohorts| %>
+              <% salesforcecohorts.attributes.each_pair do |name, value| %>
+                <% if date == value && name != "Tomorrow__c" %>
+                  <div class="d-flex flex-row align-items-center justify-content-center">
+                      <div = "d-flex">
+                        <p class="row-1 m-0 ml-2 mt-4">Cohort: <%="#{salesforcecohorts.Name[0..7]}"%></p>
+                        <% if name == "Start_Date__c" %>
+                        <% name = "W1A" %>
+                        <% elsif name == "Ending_Date__c" %>
+                        <% name = "W8B" %>
+                        <% end %>
+
+                        <p class="row-1 m-0 ml-2">Class: <%= "#{name[0..2]}"%></p>
+                      </div>
+                      <button class="makeup-button mt-3 ml-2"><%=link_to "Makeup", new_makeup_path(@makeup, clicked_cohort:"#{salesforcecohorts.Name}", clicked_day: "#{name}", location: "#{salesforcecohorts.Venue_Name__c}")%></button>
+                  </div>
+                <% end %>
+              <% end %>
+          <%end%>
+       </div>
+      <% end %>
+  <% end %>
+  <script>
+    var count_Monday = $("#Monday").children("div").length
+    var count_Tuesday = $("#Tuesday").children("div").length
+    var count_Wednesday = $("#Wednesday").children("div").length
+    var count_Thursday = $("#Thursday").children("div").length
+    var count_Saturday = $("#Saturday").children("div").length
+
+
+    for (var i = 0; i < Math.max(count_Monday, count_Tuesday, count_Wednesday, count_Thursday, count_Saturday); i++) {
+
+      monday_divs = $("#Monday").children("div").addClass(function(i){
+        count_div ="monday-" + i
+        return count_div
+      });
+      tuesday_divs = $("#Tuesday").children("div").addClass(function(i){
+        count_div = "tuesday-"+ i
+        return count_div
+      });
+      wednesday_divs = $("#Wednesday").children("div").addClass(function(i){
+        count_div = "wednesday-"+i
+        return count_div
+      });
+      thursday_divs = $("#Thursday").children("div").addClass(function(i){
+        count_div = "thursday-"+i
+        return count_div
+      });
+      saturday_divs = $("#Saturday").children("div").addClass(function(i){
+        count_div = "saturday-"+i
+        return count_div
+      });
+
+      if (i > 2){
+        $(".monday-"+i).children().hide();
+        $(".tuesday-"+i).children().hide();
+        $(".wednesday-"+i).children().hide();
+        $(".thursday-"+i).children().hide();
+        $(".saturday-"+i).children().hide();
+      };
+
+    };
+
+      var hiddenMondayMakeups = $(".monday-3").children().is(":hidden");
+      var hiddenTuesdayMakeups = $(".tuesday-3").children().is(":hidden");
+      var hiddenWednesdayMakeups = $(".wednesday-3").children().is(":hidden");
+      var hiddenThursdayMakeups = $(".thursday-3").children().is(":hidden");
+      var hiddenSaturdayMakeups = $(".saturday-3").children().is(":hidden");
+
+      if (hiddenMondayMakeups == true){
+        $("<p class='show-more-button' id='monday-button-more'>More / Less Cohorts</p>").appendTo("#Monday")
+      };
+
+      if (hiddenTuesdayMakeups == true){
+        $("<p class='show-more-button' id='tuesday-button-more'>More / Less Cohorts</p>").appendTo("#Tuesday")
+      };
+      if (hiddenWednesdayMakeups == true){
+        $("<p class='show-more-button' id='wednesday-button-more'>More / Less Cohorts</p>").appendTo("#Wednesday")
+      };
+      if (hiddenThursdayMakeups == true){
+        $("<p class='show-more-button' id='thursday-button-more'>More / Less Cohorts</p>").appendTo("#Thursday")
+      };
+      if (hiddenSaturdayMakeups == true){
+        $("<p class='show-more-button' id='saturday-button-more'>More / Less Cohorts</p>").appendTo("#Saturday")
+      };
+
+      $("#monday-button-more").click(function(){
+        for (var i = 3; i < 15; i++) {
+          $(".monday-"+i).children().toggle()
+        };
+      });
+
+      $("#tuesday-button-more").click(function(){
+        for (var i = 3; i < 15; i++) {
+          $(".tuesday-"+i).children().toggle()
+        };
+      });
+
+      $("#wednesday-button-more").click(function(){
+        for (var i = 3; i < 15; i++) {
+          $(".wednesday-"+i).children().toggle()
+        };
+      });
+
+      $("#thursday-button-more").click(function(){
+        for (var i = 3; i < 15; i++) {
+          $(".thursday-"+i).children().toggle()
+        };
+      });
+
+      $("#saturday-button-more").click(function(){
+        for (var i = 3; i < 15; i++) {
+          $(".saturday-"+i).children().toggle()
+        };
+      });
+
+  </script>
+</div>
+
+ <div class="d-flex justify-content-center mt-5">
+   <span class="more-dates-link"><%=link_to "More Dates", all_dates_path()%></span>
+ </div>

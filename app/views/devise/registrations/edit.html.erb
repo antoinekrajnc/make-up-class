@@ -21,10 +21,10 @@
     <div class="m-2 mt-4 d-flex justify-content-center flex-column">
       <%= f.label :Your_cohort %>
       <% @select_cohort = [] %>
-      <% Cohort.all.map do |c|
-          if c.week_1A == nil
-          elsif c.week_1A > Date.today - 1.month and c.week_1A < Date.today + 1.month
-          @select_cohort += ["#{c.title}"]
+      <% Cohort__c.all.map do |c|
+          if c.Start_Date__c == nil
+          elsif c.Start_Date__c > Date.today - 1.month and c.Start_Date__c < Date.today + 1.month
+          @select_cohort += ["#{c.Name}"]
         end
       end
       %>

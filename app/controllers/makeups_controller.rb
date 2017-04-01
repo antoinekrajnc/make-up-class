@@ -40,7 +40,7 @@ class MakeupsController < ApplicationController
 
     respond_to do |format|
       if @makeup.save
-        format.html { redirect_to @makeup, notice: "Makeup was sucessfully created" }
+        format.html { redirect_to @makeup, notice: "You successfully register to your makeup class, please contact your program manager if you have any questions, click on 'Product School' to go back to the Home page" }
         format.json { render :show, status: :created, location: @makeup }
       else
         format.html { render :new }
