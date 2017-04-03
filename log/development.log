@@ -2655,3 +2655,210 @@ app/controllers/salesforcecohorts_controller.rb:5:in `index'
   Rendering /Users/antoinekrainc/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
   Rendered /Users/antoinekrainc/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.7ms)
   Rendered /Users/antoinekrainc/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (69.9ms)
+Started GET "/" for ::1 at 2017-04-03 14:32:07 -0700
+Started GET "/" for ::1 at 2017-04-03 14:32:07 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (12.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (30.9ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SalesforcecohortsController#index as HTML
+Processing by SalesforcecohortsController#index as HTML
+Completed 401 Unauthorized in 16ms (ActiveRecord: 0.0ms)
+
+
+Completed 401 Unauthorized in 9ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2017-04-03 14:32:07 -0700
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.6ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (24.2ms)
+Completed 200 OK in 416ms (Views: 359.0ms | ActiveRecord: 39.3ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2017-04-03 14:32:18 -0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1kleHnfYPNuQVP2H/n15CsjT1peXNBn65mNxGgBKqAHuBXK13YlQJMHY1j93EGwf/0t+LK4ByDr9ZIPNTY0Tpg==", "user"=>{"email"=>"antoine@productschool.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (25.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "antoine@productschool.com"], ["LIMIT", 1]]
+  [1m[35m (1.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (3.6ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["current_sign_in_at", 2017-04-03 21:32:19 UTC], ["last_sign_in_at", 2017-03-31 22:49:13 UTC], ["sign_in_count", 4], ["updated_at", 2017-04-03 21:32:19 UTC], ["id", 1]]
+  [1m[35m (58.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 257ms (ActiveRecord: 88.3ms)
+
+
+Started GET "/" for ::1 at 2017-04-03 14:32:19 -0700
+Processing by SalesforcecohortsController#index as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 357ms (ActiveRecord: 1.2ms)
+
+
+  
+Databasedotcom::SalesForceError (client identifier invalid):
+  
+app/controllers/salesforcecohorts_controller.rb:5:in `index'
+  Rendering /Users/antoinekrainc/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/antoinekrainc/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/antoinekrainc/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.0ms)
+  Rendering /Users/antoinekrainc/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/antoinekrainc/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendering /Users/antoinekrainc/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/antoinekrainc/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/antoinekrainc/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (70.4ms)
+Started GET "/" for ::1 at 2017-04-03 14:33:08 -0700
+Processing by SalesforcecohortsController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.9ms)
+
+
+  
+URI::InvalidURIError (bad URI(is not URI?): ):
+  
+app/controllers/salesforcecohorts_controller.rb:5:in `index'
+  Rendering /Users/antoinekrainc/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/antoinekrainc/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/antoinekrainc/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.8ms)
+  Rendering /Users/antoinekrainc/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/antoinekrainc/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendering /Users/antoinekrainc/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/antoinekrainc/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /Users/antoinekrainc/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (92.7ms)
+Started GET "/" for ::1 at 2017-04-03 14:33:56 -0700
+Processing by SalesforcecohortsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.5ms)
+
+
+  
+URI::InvalidURIError (bad URI(is not URI?): ):
+  
+app/controllers/salesforcecohorts_controller.rb:5:in `index'
+  Rendering /Users/antoinekrainc/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/antoinekrainc/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/antoinekrainc/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.0ms)
+  Rendering /Users/antoinekrainc/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/antoinekrainc/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendering /Users/antoinekrainc/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/antoinekrainc/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/antoinekrainc/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (62.0ms)
+Started GET "/" for ::1 at 2017-04-03 14:34:10 -0700
+Processing by SalesforcecohortsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.4ms)
+
+
+  
+URI::InvalidURIError (bad URI(is not URI?): ):
+  
+app/controllers/salesforcecohorts_controller.rb:5:in `index'
+  Rendering /Users/antoinekrainc/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/antoinekrainc/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/antoinekrainc/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.0ms)
+  Rendering /Users/antoinekrainc/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/antoinekrainc/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendering /Users/antoinekrainc/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/antoinekrainc/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/antoinekrainc/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (63.5ms)
+Started GET "/" for ::1 at 2017-04-03 14:34:13 -0700
+Processing by SalesforcecohortsController#index as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 1.3ms)
+
+
+  
+URI::InvalidURIError (bad URI(is not URI?): ):
+  
+app/controllers/salesforcecohorts_controller.rb:5:in `index'
+  Rendering /Users/antoinekrainc/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/antoinekrainc/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/antoinekrainc/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.8ms)
+  Rendering /Users/antoinekrainc/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/antoinekrainc/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendering /Users/antoinekrainc/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/antoinekrainc/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/antoinekrainc/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (65.2ms)
+Started GET "/" for ::1 at 2017-04-03 14:35:04 -0700
+Processing by SalesforcecohortsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.7ms)
+
+
+  
+URI::InvalidURIError (bad URI(is not URI?): ):
+  
+app/controllers/salesforcecohorts_controller.rb:5:in `index'
+  Rendering /Users/antoinekrainc/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/antoinekrainc/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/antoinekrainc/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.9ms)
+  Rendering /Users/antoinekrainc/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/antoinekrainc/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendering /Users/antoinekrainc/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/antoinekrainc/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/antoinekrainc/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (67.0ms)
+Started GET "/" for ::1 at 2017-04-03 14:36:31 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SalesforcecohortsController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 293ms (ActiveRecord: 7.4ms)
+
+
+  
+Databasedotcom::SalesForceError (client identifier invalid):
+  
+app/controllers/salesforcecohorts_controller.rb:5:in `index'
+  Rendering /Users/antoinekrainc/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/antoinekrainc/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/antoinekrainc/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.6ms)
+  Rendering /Users/antoinekrainc/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/antoinekrainc/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendering /Users/antoinekrainc/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/antoinekrainc/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/antoinekrainc/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (74.3ms)
+Started GET "/" for ::1 at 2017-04-03 14:38:35 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SalesforcecohortsController#index as HTML
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering salesforcecohorts/index.html.erb within layouts/application
+  Rendered salesforcecohorts/index.html.erb within layouts/application (229.6ms)
+Completed 200 OK in 4548ms (Views: 528.3ms | ActiveRecord: 7.7ms)
+
+
+Started GET "/makeups/new?clicked_cohort=SF+-+COD+-+4%2F10%2F2017+-+Monday+-+3rd&clicked_day=W1B_Date__c&location=415+Jackson+St%2C+San+Francisco%2C+CA+94111" for ::1 at 2017-04-03 14:38:51 -0700
+Processing by MakeupsController#new as HTML
+  Parameters: {"clicked_cohort"=>"SF - COD - 4/10/2017 - Monday - 3rd", "clicked_day"=>"W1B_Date__c", "location"=>"415 Jackson St, San Francisco, CA 94111"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (9.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "makeups" WHERE "makeups"."clicked_day" = $1 AND "makeups"."clicked_cohort" = $2[0m  [["clicked_day", "W1B_Date__c"], ["clicked_cohort", "SF - COD - 4/10/2017 - Monday - 3rd"]]
+  Rendering makeups/new.html.erb within layouts/application
+  Rendered makeups/_form.html.erb (21.9ms)
+  Rendered makeups/new.html.erb within layouts/application (24.3ms)
+  [1m[35m (3.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "makeups" WHERE "makeups"."clicked_cohort" = $1 AND "makeups"."clicked_day" = $2[0m  [["clicked_cohort", ""], ["clicked_day", "W1B_Date__c"]]
+Completed 200 OK in 151ms (Views: 79.8ms | ActiveRecord: 30.0ms)
+
+
+Started GET "/salesforcecohorts/index" for ::1 at 2017-04-03 14:38:56 -0700
+Processing by SalesforcecohortsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering salesforcecohorts/index.html.erb within layouts/application
+  Rendered salesforcecohorts/index.html.erb within layouts/application (201.7ms)
+Completed 200 OK in 2475ms (Views: 237.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/makeups/new?clicked_cohort=NY+-+PM+-+4%2F4%2F2017+-+Tuesday+-+17th&clicked_day=W1B_Date__c&location=1216+Broadway%2C+New+York%2C+NY+10001" for ::1 at 2017-04-03 14:39:17 -0700
+Processing by MakeupsController#new as HTML
+  Parameters: {"clicked_cohort"=>"NY - PM - 4/4/2017 - Tuesday - 17th", "clicked_day"=>"W1B_Date__c", "location"=>"1216 Broadway, New York, NY 10001"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "makeups" WHERE "makeups"."clicked_day" = $1 AND "makeups"."clicked_cohort" = $2[0m  [["clicked_day", "W1B_Date__c"], ["clicked_cohort", "NY - PM - 4/4/2017 - Tuesday - 17th"]]
+  Rendering makeups/new.html.erb within layouts/application
+  Rendered makeups/_form.html.erb (3.4ms)
+  Rendered makeups/new.html.erb within layouts/application (5.8ms)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "makeups" WHERE "makeups"."clicked_cohort" = $1 AND "makeups"."clicked_day" = $2[0m  [["clicked_cohort", ""], ["clicked_day", "W1B_Date__c"]]
+Completed 200 OK in 79ms (Views: 67.5ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/salesforcecohorts/index" for ::1 at 2017-04-03 14:39:20 -0700
+Processing by SalesforcecohortsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering salesforcecohorts/index.html.erb within layouts/application
+  Rendered salesforcecohorts/index.html.erb within layouts/application (208.4ms)
+Completed 200 OK in 2476ms (Views: 254.3ms | ActiveRecord: 0.7ms)
+
+
