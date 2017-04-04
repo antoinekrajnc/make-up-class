@@ -1,5 +1,6 @@
 class SalesforcecohortsController < ApplicationController
   include Databasedotcom::Rails::Controller
+  skip_before_action :authenticate_user!, only: [:index]
 
   def index
     @salesforcecohorts = Cohort__c.all
