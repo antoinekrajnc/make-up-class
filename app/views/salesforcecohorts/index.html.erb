@@ -25,7 +25,7 @@
         <hr class="separator m-0 ml-2"></hr>
           <% @salesforcecohorts.each do |salesforcecohorts| %>
               <% salesforcecohorts.attributes.each_pair do |name, value| %>
-                <% if date == value && name != "Tomorrow__c" %>
+                <% if date == value && name != "Tomorrow__c" && name != "TODAY__c" && name != "No_Class_On_Date_1__c" && name != "No_Class_On_Date_2__c" && name != "No_Class_On_Date_3__c" && name != "No_Class_On_Date_4__c" && name != "No_Class_On_Date_5__c" && name != "No_Class_On_Date_6__c"%>
                   <div class="d-flex flex-row align-items-center justify-content-center">
                       <div = "d-flex">
                         <p class="row-1 m-0 ml-2 mt-4">Cohort: <%="#{salesforcecohorts.Name[0..7]}"%></p>
