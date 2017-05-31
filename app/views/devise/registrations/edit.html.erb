@@ -23,7 +23,7 @@
       <% @select_cohort = [] %>
       <% Cohort__c.all.map do |c|
           if c.Start_Date__c == nil
-          elsif c.Start_Date__c > Date.today - 1.month and c.Start_Date__c < Date.today + 1.month
+          elsif c.Start_Date__c > Date.today - 2.month and c.Start_Date__c < Date.today + 2.month
           @select_cohort += ["#{c.Name}"]
         end
       end
