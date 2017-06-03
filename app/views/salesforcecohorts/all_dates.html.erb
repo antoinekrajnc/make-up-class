@@ -37,6 +37,11 @@
         <% @salesforcecohorts.each do |salesforcecohorts| %>
         <% salesforcecohorts.attributes.each_pair do |name, value| %>
           <% if month_day == value && name != "Tomorrow__c" && name != "TODAY__c" && name != "No_Class_On_Date_1__c" && name != "No_Class_On_Date_2__c" && name != "No_Class_On_Date_3__c" && name != "No_Class_On_Date_4__c" && name != "No_Class_On_Date_5__c" && name != "No_Class_On_Date_6__c"%>
+            <% if name == "Start_Date__c" %>
+              <% name = "W1A" %>
+            <% elsif name == "Ending_Date__c" %>
+              <% name = "W8B"%>
+            <%end%>
             <div class="d-flex flex-row align-items-center justify-content-center">
                 <div = "d-flex flex-start">
                   <p class="all-dates-day row-1 m-0 mt-1"><strong>Cohort:</strong> <%="#{salesforcecohorts.Name[0..7]}"%></p>

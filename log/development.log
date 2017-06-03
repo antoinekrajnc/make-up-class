@@ -1204,3 +1204,67 @@ Processing by Devise::RegistrationsController#new as HTML
 Completed 200 OK in 2961ms (Views: 2837.7ms | ActiveRecord: 70.3ms)
 
 
+Started GET "/" for ::1 at 2017-06-02 17:49:14 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (27.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SalesforcecohortsController#index as HTML
+  Rendering salesforcecohorts/index.html.erb within layouts/application
+  Rendered salesforcecohorts/index.html.erb within layouts/application (187.8ms)
+Completed 200 OK in 4377ms (Views: 531.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/all_dates" for ::1 at 2017-06-02 17:49:23 -0700
+Processing by SalesforcecohortsController#all_dates as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2017-06-02 17:49:23 -0700
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (19.8ms)
+Completed 200 OK in 126ms (Views: 54.8ms | ActiveRecord: 47.4ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2017-06-02 17:49:30 -0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"A1V0V0es7j1X3mC8fj/KQmLA16BV/puiZwFv0t9Wj/rdzYvQyZUCzgTBHxBMswUSDPBtmDx2NiJIFFd2V725sA==", "user"=>{"email"=>"antoine@productschool.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (128.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "antoine@productschool.com"], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (4.9ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["current_sign_in_at", 2017-06-03 00:49:30 UTC], ["last_sign_in_at", 2017-04-07 21:38:06 UTC], ["sign_in_count", 10], ["updated_at", 2017-06-03 00:49:30 UTC], ["id", 1]]
+  [1m[35m (86.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/all_dates
+Completed 302 Found in 401ms (ActiveRecord: 219.8ms)
+
+
+Started GET "/all_dates" for ::1 at 2017-06-02 17:49:31 -0700
+Processing by SalesforcecohortsController#all_dates as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering salesforcecohorts/all_dates.html.erb within layouts/application
+  Rendered salesforcecohorts/all_dates.html.erb within layouts/application (977.0ms)
+Completed 200 OK in 3754ms (Views: 1008.5ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/all_dates" for ::1 at 2017-06-02 17:50:13 -0700
+Processing by SalesforcecohortsController#all_dates as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering salesforcecohorts/all_dates.html.erb within layouts/application
+  Rendered salesforcecohorts/all_dates.html.erb within layouts/application (1013.8ms)
+Completed 200 OK in 3499ms (Views: 1055.0ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/all_dates" for ::1 at 2017-06-02 17:52:43 -0700
+Processing by SalesforcecohortsController#all_dates as HTML
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering salesforcecohorts/all_dates.html.erb within layouts/application
+  Rendered salesforcecohorts/all_dates.html.erb within layouts/application (941.4ms)
+Completed 200 OK in 3218ms (Views: 978.0ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/all_dates" for ::1 at 2017-06-02 17:53:02 -0700
+Processing by SalesforcecohortsController#all_dates as HTML
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering salesforcecohorts/all_dates.html.erb within layouts/application
+  Rendered salesforcecohorts/all_dates.html.erb within layouts/application (915.3ms)
+Completed 200 OK in 3176ms (Views: 1017.7ms | ActiveRecord: 2.2ms)
+
+
